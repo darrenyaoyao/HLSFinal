@@ -1,1 +1,4 @@
 facenet-pytorch
+tqdm
+albumentations
+brevitas
