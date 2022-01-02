@@ -235,7 +235,7 @@ for n_i in tqdm.trange(1000):
         loss.backward()
         optimizer.step()
 
-from brevitas.export import StdQOpONNXManager
+from brevitas.export import FINNManager
 
-StdQOpONNXManager.export(model, input_shape=(1, 3, 160, 160), export_path="facenet.onnx")
+FINNManager.export(model.to('cpu'), input_shape=(1, 3, 160, 160), export_path="facenet.onnx")
 

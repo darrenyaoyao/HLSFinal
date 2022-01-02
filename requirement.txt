@@ -2,3 +2,5 @@ facenet-pytorch
 tqdm
 albumentations
 brevitas
+onnxoptimizer
+protobuf=3.19.1
