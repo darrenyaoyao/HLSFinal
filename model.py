@@ -36,7 +36,6 @@ class QuantWeightLeNet(Module):
 
     def forward(self, x):
         out = self.quant_inp(x)
-        print(out[0])
         out = self.relu1(self.conv1(x))
         out = F.max_pool2d(out, 2)
         out = self.relu2(self.conv2(out))

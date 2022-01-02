@@ -228,7 +228,6 @@ for n_i in tqdm.trange(1000):
         anchor_embed = model(anchor_x.to(device))
         positive_embed = model(positive_x.to(device))
         negative_embed = model(negative_x.to(device))
-        # print(anchor_embed[0])
 
         loss = criterion(anchor_embed, positive_embed, negative_embed)
         print(n_i, ": ", loss.item())
@@ -236,6 +235,7 @@ for n_i in tqdm.trange(1000):
         loss.backward()
         optimizer.step()
 
+from brevitas.export import StdQOpONNXManager
 
-
+StdQOpONNXManager.export(model, input_shape=(1, 3, 160, 160), export_path="facenet.onnx")
 
